@@ -1,0 +1,186 @@
+{
+    "version": 8,
+    "name": "imagis",
+    "metadata": {
+        "maputnik:renderer": "mbgljs"
+    },
+    "sources": {
+        "OSM": {
+            "type": "raster",
+            "tiles": [
+                "https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=131a47c7b2384929a06337668d83ad94"
+            ],
+            "minzoom": 0,
+            "maxzoom": 24
+        },
+        "Mreža": {
+            "type": "geojson",
+            "data": "http://localhost:3000/mreza"
+        }
+    },
+    "sprite": "http://localhost/vreloRab/src/sprites/osm-liberty",
+    "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+    "center": [
+        16.4794369, 43.519343
+    ],
+    "zoom": 10,
+    "layers": [{
+            "id": "OSM",
+            "type": "raster",
+            "source": "OSM",
+            "layout": {
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "vod",
+            "type": "line",
+            "source": "Mreža",
+            "paint": {
+                "line-color": "rgba(10, 45, 249, 1)",
+                "line-width": 3
+            },
+            "layout": {},
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "Klasa",
+                    "Vod"
+                ]
+            ],
+            "minzoom": 10
+        },
+        {
+            "id": "vodDN",
+            "type": "symbol",
+            "source": "Mreža",
+            "paint": {
+                "text-color": "rgba(10, 45, 249, 1)",
+                "text-halo-color": "rgba(255,255,255,0.7)",
+                "text-halo-width": 2
+            },
+            "layout": {
+                "text-field": ["get", "DN"],
+                "symbol-placement": "line",
+                "text-anchor": "bottom",
+                "text-size": 12,
+                "text-padding": 5,
+                "text-font": [
+                    "Open Sans Bold"
+                ]
+            },
+            "minzoom": 15
+        },
+        {
+            "id": "Vodospremnik",
+            "type": "circle",
+            "source": "Mreža",
+            "paint": {
+                "circle-color": "rgba(8, 40, 232, 1)",
+                "circle-radius": 2
+            },
+            "layout": {},
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "Klasa",
+                    "Vodospremnik"
+                ]
+            ]
+        },
+        {
+            "id": "izvor",
+            "type": "circle",
+            "source": "Mreža",
+            "paint": {
+                "circle-color": "rgba(100, 40, 232, 1)",
+                "circle-radius": 5
+            },
+            "layout": {},
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "Klasa",
+                    "Izvor"
+                ]
+            ]
+        },
+        {
+            "id": "spoj",
+            "type": "circle",
+            "source": "Mreža",
+            "paint": {
+                "circle-color": "rgba(0,0,0,1)",
+                "circle-radius": 3
+            },
+            "layout": {},
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "Klasa",
+                    "Spoj"
+                ]
+            ],
+            "minzoom": 16
+        },
+        {
+            "id": "pumpa",
+            "type": "circle",
+            "source": "Mreža",
+            "paint": {
+                "circle-color": "rgba(100, 40, 2, 1)",
+                "circle-radius": 5
+            },
+            "layout": {},
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "Klasa",
+                    "Pumpa"
+                ]
+            ]
+        },
+        {
+            "id": "kondicioniranje",
+            "type": "circle",
+            "source": "Mreža",
+            "paint": {
+                "circle-color": "rgba(200, 0, 200, 1)",
+                "circle-radius": 10
+            },
+            "layout": {},
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "Klasa",
+                    "Kondicioniranje"
+                ]
+            ]
+        },
+        {
+            "id": "kanal",
+            "type": "line",
+            "source": "Mreža",
+            "paint": {
+                "line-color": "rgba(100, 100, 200, 1)",
+                "line-width": 8
+            },
+            "layout": {},
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "Klasa",
+                    "Kanal"
+                ]
+            ]
+        }
+    ],
+    "id": "tyb5zq20e"
+}
