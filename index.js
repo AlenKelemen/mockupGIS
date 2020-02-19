@@ -1,7 +1,5 @@
 import './main.css';
 import 'ol/ol.css';
-import '@fortawesome/fontawesome-pro/css/fontawesome.css';
-import '@fortawesome/fontawesome-pro/css/duotone.min.css';
 
 import mbStyle from './mbStyle.json'; //mapbox style json
 import Map from 'ol/Map';
